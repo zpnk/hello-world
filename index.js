@@ -1,7 +1,9 @@
 const app = require('express')()
 
 app.get('/', (req, res) => {
-  res.send('Welcome')
+  const greeting = process.env.GREETING;
+
+  res.send(`${greeting || 'hello'} world`);
 })
 
 app.listen(process.env.PORT || 3000)
